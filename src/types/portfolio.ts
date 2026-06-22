@@ -1,5 +1,5 @@
 // ============================================================
-// src/types/portfolio.ts  — replace your existing file with this
+// src/types/portfolio.ts
 // ============================================================
 
 export interface SocialLink {
@@ -49,9 +49,22 @@ export interface PortfolioProfile {
     updated_at: string;
 }
 
+
+// ============================================================
+// Project Types
+// ============================================================
+
 export interface ProjectFeature {
     id: number;
     title: string;
+}
+
+export interface GalleryImage {
+    id: number;
+    caption: string;
+    image: string;
+    image_url: string;
+    display_order: number;
 }
 
 export interface Project {
@@ -61,29 +74,48 @@ export interface Project {
     title: string;
     slug: string;
     description: string;
+
     image: string;
     image_url: string | null;
+
+    gallery: GalleryImage[];
+
     github_url: string;
     live_url: string;
+
     featured: boolean;
     display_order: number;
     is_active: boolean;
+
     features: ProjectFeature[];
+
     created_at: string;
     updated_at: string;
 }
+
+// ============================================================
+// Testimonials
+// ============================================================
 
 export interface Testimonial {
     id: number;
     client_name: string;
     position: string;
     review: string;
+
     avatar: string;
     avatar_url: string | null;
+
     display_order: number;
+
     created_at: string;
     updated_at: string;
 }
+
+
+// ============================================================
+// Contact
+// ============================================================
 
 export interface ContactMessage {
     id?: number;
