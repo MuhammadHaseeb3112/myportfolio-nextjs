@@ -138,7 +138,7 @@ export const AboutSection = () => {
                   {photoUrl ? (
                     <Image
                       src={photoUrl}
-                      alt={fullName}
+                      alt={fullName ?? "Profile Image"}
                       fill
                       className="object-cover"
                     />
