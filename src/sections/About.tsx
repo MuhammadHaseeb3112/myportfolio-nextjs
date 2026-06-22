@@ -5,7 +5,7 @@ import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
 import Image from "next/image";
 import mapImage from "@/assets/images/map.png";
-import styleEmoji from "@/assets/images/location.png";
+import mapimg from "@/assets/images/memoji-avatar-3.png";
 import { CardHeader } from "@/components/CardHeader";
 import { ToolBoxItems } from "@/components/ToolBoxItems";
 import { motion } from "framer-motion";
@@ -58,34 +58,7 @@ const skillIconMap: Record<string, React.FC<React.SVGProps<SVGSVGElement>>> = {
   "Bootstrap": BootstrapIcon,
 };
 
-const fallbackTools = [
-  { title: "Python", iconType: PythonIcon },
-  { title: "Django", iconType: DjangoIcon },
-  { title: "Django REST Framework", iconType: DrfIcon },
-  { title: "PostgreSQL", iconType: PostgreSQLIcon },
-  { title: "MySQL", iconType: MySQLIcon },
-  { title: "Docker", iconType: DockerIcon },
-  { title: "REST API", iconType: ApiIcon },
-  { title: "Swagger / OpenAPI", iconType: SwaggerIcon },
-  { title: "Postman", iconType: PostmanIcon },
-  { title: "Git", iconType: GitIcon },
-  { title: "GitHub", iconType: GitHubIcon },
-  { title: "HTML5", iconType: HtmlIcon },
-  { title: "CSS3", iconType: CssIcon },
-  { title: "JavaScript", iconType: JsIcon },
-  { title: "Bootstrap", iconType: BootstrapIcon },
-  { title: "VS Code", iconType: VSCodeIcon },
-];
 
-const fallbackHobbies = [
-  { title: "Coding", emoji: "💻", left: "5%", top: "5%" },
-  { title: "Photography", emoji: "📸", left: "50%", top: "5%" },
-  { title: "Reading", emoji: "📚", left: "10%", top: "35%" },
-  { title: "Cricket", emoji: "🏏", left: "60%", top: "35%" },
-  { title: "Music", emoji: "🎧", left: "30%", top: "55%" },
-  { title: "Travelling", emoji: "✈️", left: "5%", top: "65%" },
-  { title: "Learning", emoji: "🧠", left: "55%", top: "65%" },
-];
 
 // ── Scroll-reveal hook ───────────────────────────────────────
 const useReveal = (threshold = 0.15) => {
@@ -112,30 +85,28 @@ export const AboutSection = () => {
   const { ref: row2Ref, visible: row2Visible } = useReveal();
 
   // ── Toolbox items ─────────────────────────────────────────
-  const toolBoxItems = (() => {
-    if (!profile?.skills || profile.skills.length === 0) return fallbackTools;
-    const mapped = profile.skills
-      .map((s) => ({ title: s.name, iconType: skillIconMap[s.name] ?? null }))
-      .filter((i) => i.iconType !== null) as {
-        title: string;
-        iconType: React.FC<React.SVGProps<SVGSVGElement>>;
-      }[];
-    return mapped.length > 0 ? mapped : fallbackTools;
-  })();
+  const toolBoxItems =
+    profile?.skills
+      ?.map((skill) => ({
+        title: skill.name,
+        iconType: skillIconMap[skill.name],
+      }))
+      .filter((item) => item.iconType) ?? [];
 
   // ── Hobbies ───────────────────────────────────────────────
   const hobbies =
-    profile?.hobbies && profile.hobbies.length > 0
-      ? profile.hobbies.map((h) => ({
-        title: h.title, emoji: h.emoji,
-        left: h.left_position, top: h.top_position,
-      }))
-      : fallbackHobbies;
+    profile?.hobbies?.map((hobby) => ({
+      title: hobby.title,
+      emoji: hobby.emoji,
+      left: hobby.left_position,
+      top: hobby.top_position,
+    })) ?? [];
 
-  const mapUrl = profile?.map_url ?? "https://maps.app.goo.gl/VPx2NKvuYBVoxC6aA";
-  const fullName = profile?.full_name ?? "Muhammad Haseeb";
-  const desig = profile?.designation ?? "Backend Engineer | Django | REST API";
-  const photoUrl = profile?.profile_image_url ?? null;
+
+  const mapUrl = profile?.map_url;
+  const fullName = profile?.full_name;
+  const desig = profile?.designation;
+  const photoUrl = profile?.profile_image_url;
 
   return (
     <div className="py-16 lg:py-24" id="about">
@@ -174,7 +145,7 @@ export const AboutSection = () => {
                   ) : (
                     <div className="w-full h-full bg-gradient-to-br from-emerald-300 to-sky-400 flex items-center justify-center">
                       <span className="text-gray-900 text-4xl font-bold">
-                        {fullName.charAt(0)}
+                        {fullName?.charAt(0)}
                       </span>
                     </div>
                   )}
@@ -191,12 +162,12 @@ export const AboutSection = () => {
 
               {/* Skill badges */}
               <div className="mt-4 flex flex-wrap gap-2 justify-center">
-                {["Django", "REST API", "Python"].map((tag) => (
+                {(profile?.skills ?? []).slice(0, 3).map((skill) => (
                   <span
-                    key={tag}
+                    key={skill.id}
                     className="text-[10px] sm:text-xs px-2.5 py-1 rounded-full border border-emerald-300/20 bg-emerald-300/5 text-emerald-300"
                   >
-                    {tag}
+                    {skill.name}
                   </span>
                 ))}
               </div>
@@ -295,7 +266,7 @@ export const AboutSection = () => {
                   {/* Circle */}
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 flex items-center justify-center">
                     <Image
-                      src={styleEmoji}
+                      src={mapimg}
                       alt="location"
                       width={48}
                       height={48}

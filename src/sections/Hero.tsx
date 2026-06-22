@@ -118,14 +118,28 @@ export const HeroSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  const projectsCount = useCounter(15, 1500, statsStarted);
-  const clientsCount = useCounter(15, 1500, statsStarted);
-  const experienceCount = useCounter(2, 1200, statsStarted);
+  // Portfolio Statistics
+  const TOTAL_PROJECTS = 15;
+  const HAPPY_CLIENTS = 15;
+  const YEARS_EXPERIENCE = 2;
 
-  const heroTitle = profile?.hero_title ?? "Building Digital Experiences";
-  const heroDesc = profile?.hero_description ?? "Specializing in Web Development, Django, and React to drive high-performance digital growth. Let's discuss your project.";
-  const available = profile?.available_for_work ?? true;
-  const photoUrl = profile?.profile_image_url ?? null;
+  const projectsCount = useCounter(TOTAL_PROJECTS, 1500, true);
+  const clientsCount = useCounter(HAPPY_CLIENTS, 1500, true);
+  const experienceCount = useCounter(YEARS_EXPERIENCE, 1200, true);
+
+  const heroTitle = profile?.hero_title;
+  const heroDesc = profile?.hero_description;
+  const available = profile?.available_for_work;
+  const photoUrl = profile?.profile_image_url;
+
+
+  if (!profile) {
+    return (
+      <section className="py-40 flex justify-center items-center">
+        <div className="h-10 w-10 rounded-full border-4 border-emerald-400 border-t-transparent animate-spin" />
+      </section>
+    );
+  }
 
   return (
     <div className="py-20 md:py-34 lg:py-60 relative z-0 overflow-x-clip">
@@ -241,7 +255,9 @@ export const HeroSection = () => {
                 )}
               </div>
               <div className="text-sm font-medium">
-                {available ? "Available for new projects" : "Currently unavailable"}
+                {available
+                  ? "Available for new projects"
+                  : "Currently unavailable"}
               </div>
             </div>
           </div>
@@ -322,15 +338,18 @@ export const HeroSection = () => {
           }}
         >
           {[
-            { value: projectsCount, suffix: "+", label: "Projects Done" },
+            { value: projectsCount, suffix: "+", label: "Projects Completed" },
             { value: clientsCount, suffix: "+", label: "Happy Clients" },
             { value: experienceCount, suffix: "+", label: "Years Experience" },
           ].map((stat) => (
             <div key={stat.label} className="flex flex-col items-center gap-1">
               <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-emerald-300 to-sky-400 bg-clip-text text-transparent">
-                {stat.value}{stat.suffix}
+                {stat.value}
+                {stat.suffix}
               </span>
-              <span className="text-white/40 text-xs md:text-sm">{stat.label}</span>
+              <span className="text-white/40 text-xs md:text-sm">
+                {stat.label}
+              </span>
             </div>
           ))}
         </div>
