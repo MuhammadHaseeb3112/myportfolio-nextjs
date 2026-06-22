@@ -107,25 +107,33 @@ export const HeroSection = () => {
   // Stats counter
   const [statsStarted, setStatsStarted] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
+  // 2. Re-run the observer effect after profile loads
   useEffect(() => {
     const el = statsRef.current;
-    if (!el) return;
+    if (!el) return;  // profile not loaded yet, skip
+
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setStatsStarted(true); },
-      { threshold: 0.5 }
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStatsStarted(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0 }
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [profile]); // ← add 'profile' as dependency!
 
   // Portfolio Statistics
   const TOTAL_PROJECTS = 15;
   const HAPPY_CLIENTS = 15;
   const YEARS_EXPERIENCE = 2;
 
-  const projectsCount = useCounter(TOTAL_PROJECTS, 1500, true);
-  const clientsCount = useCounter(HAPPY_CLIENTS, 1500, true);
-  const experienceCount = useCounter(YEARS_EXPERIENCE, 1200, true);
+  // 1. Fix the hardcoded 'true'
+  const projectsCount = useCounter(TOTAL_PROJECTS, 1500, statsStarted);
+  const clientsCount = useCounter(HAPPY_CLIENTS, 1500, statsStarted);
+  const experienceCount = useCounter(YEARS_EXPERIENCE, 1200, statsStarted);
 
   const heroTitle = profile?.hero_title;
   const heroDesc = profile?.hero_description;
