@@ -8,12 +8,20 @@ const menuitems = [
     path: "/#projects",
   },
   {
+    name: "Testimonials",
+    path: "/#testimonials",  // ← lowercase, matches id="testimonials"
+  },
+  {
     name: "About",
     path: "/#about",
   },
   {
     name: "Contact",
     path: "/#contact",
+  },
+  {
+    name: "Dashboard",
+    path: "/dashboard",
   },
 ];
 

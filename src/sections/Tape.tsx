@@ -2,7 +2,7 @@ import StarIcon from "@/assets/icons/star.svg";
 import { Fragment } from "react";
 
 const words = [
-  "performant",
+  "performance",
   "responsive",
   "scalable",
   "modern",
@@ -10,7 +10,6 @@ const words = [
   "progressive",
   "intuitive",
   "accessible",
-  "progressive",
   "User-Friendly",
   "Robust",
   "Reliable",
@@ -23,7 +22,6 @@ const words = [
   "progressive",
   "intuitive",
   "accessible",
-  "progressive",
   "User-Friendly",
   "Robust",
   "Reliable",
