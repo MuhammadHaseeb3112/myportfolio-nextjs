@@ -42,8 +42,6 @@ const getImageUrl = (project: Project): string => {
 const getGalleryImages = (project: Project): string[] => {
   const main = getImageUrl(project);
 
-  // Cast to any to safely read gallery regardless of type narrowing
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const rawGallery: GalleryImage[] = (project as any).gallery ?? [];
 
   if (process.env.NODE_ENV === "development") {
