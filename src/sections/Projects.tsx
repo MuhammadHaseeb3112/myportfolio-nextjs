@@ -25,7 +25,6 @@ const getImageUrl = (p: Project): string =>
 const getGalleryImages = (project: Project): string[] => {
   const main = getImageUrl(project);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const rawGallery: GalleryImage[] = (project as any).gallery ?? [];
 
   if (!Array.isArray(rawGallery) || rawGallery.length === 0) {
