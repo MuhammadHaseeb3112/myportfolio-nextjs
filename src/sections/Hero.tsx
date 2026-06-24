@@ -279,7 +279,7 @@ export const HeroSection = () => {
             transform: showTitle ? "translateY(0)" : "translateY(20px)",
           }}
         >
-          <h1 className="font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide">
+          <h1 className="font-serif text-2xl md:text-4xl text-center mt-8 tracking-wide">
             {heroTitle}
           </h1>
         </div>

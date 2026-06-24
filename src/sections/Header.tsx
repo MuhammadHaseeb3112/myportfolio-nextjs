@@ -54,8 +54,23 @@ export const Header = () => {
           {/* Top Bar */}
           <div className="flex justify-between items-center rounded-full border border-white/10 bg-white/10 backdrop-blur-xl px-4 py-3">
 
-            <h1 className="text-white font-semibold">
-              Portfolio
+            <h1
+              className="text-[2.5rem] sm:text-[2rem] font-[Cinzel] font-black tracking-[0.06em] leading-none" style={{
+                textShadow: `
+      0 0 10px rgba(0,229,204,0.9),
+      0 0 25px rgba(0,229,204,0.75),
+      0 0 55px rgba(0,229,204,0.55),
+      0 0 100px rgba(0,229,204,0.3),
+      0 0 180px rgba(0,229,204,0.15)
+    `,
+                WebkitTextStroke: "1px rgba(180,255,245,0.35)",
+                background: "linear-gradient(160deg, #ffffff 0%, #b0fff4 35%, #00e5cc 65%, #00a890 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              MH
             </h1>
 
             <button
