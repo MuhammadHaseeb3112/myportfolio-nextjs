@@ -139,6 +139,7 @@ export const HeroSection = () => {
   const heroDesc = profile?.hero_description;
   const available = profile?.available_for_work;
   const photoUrl = profile?.profile_image_url;
+  const resume = profile?.resume;
 
 
   if (!profile) {
@@ -314,6 +315,42 @@ export const HeroSection = () => {
           </p>
         </div>
 
+
+
+
+        {/* CV Download Button */}
+        {resume && (
+          <div
+            className="flex justify-center mt-4 transition-all duration-700 ease-out"
+            style={{
+              opacity: showDesc ? 1 : 0,
+              transform: showDesc ? "translateY(0)" : "translateY(20px)",
+            }}
+          >
+            <a
+              href={resume}
+              download="Haseeb_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-emerald-300/30 bg-emerald-300/5 hover:bg-emerald-300/10 hover:border-emerald-300/60 transition-all duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="size-4 text-emerald-300 group-hover:translate-y-0.5 transition-transform duration-300"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+              </svg>
+              <span className="text-sm font-medium text-emerald-300">
+                Download CV
+              </span>
+            </a>
+          </div>
+        )}
+
         {/* CTA Buttons */}
         <div
           className="flex flex-col md:flex-row justify-center items-center gap-4 mt-8 transition-all duration-700 ease-out"
@@ -370,7 +407,7 @@ export const HeroSection = () => {
           50%       { opacity: 0; }
         }
       `}</style>
-    </div>
+    </div >
   );
 };
 
