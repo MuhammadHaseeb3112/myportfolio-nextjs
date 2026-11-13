@@ -365,7 +365,7 @@ const MobileProjectCard = ({ project, index }: { project: Project; index: number
 
         {/* Buttons */}
         <div className="flex flex-wrap gap-2.5 pt-1">
-          {project.live_url && (
+          {project.live_url && project.live_url !== project.github_url && (
             <a href={project.live_url} target="_blank" rel="noopener noreferrer">
               <button className="h-9 px-4 rounded-lg bg-emerald-400 text-gray-950 font-semibold text-sm inline-flex items-center gap-1.5 hover:bg-emerald-300 transition-all active:scale-95">
                 Live Demo <ArrowUpRight className="size-3.5" />
@@ -580,7 +580,7 @@ const DesktopProjectCard = ({
 
           {/* Buttons */}
           <div className="flex flex-wrap gap-3">
-            {project.live_url && (
+            {project.live_url && project.live_url !== project.github_url && (
               <a href={project.live_url} target="_blank" rel="noopener noreferrer">
                 <button className="h-9 px-5 rounded-lg bg-emerald-400 text-gray-950 font-semibold text-sm inline-flex items-center gap-1.5 hover:bg-emerald-300 transition-all active:scale-95">
                   Live Demo <ArrowUpRight className="size-3.5" />

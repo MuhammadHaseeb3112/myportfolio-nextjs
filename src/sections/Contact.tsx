@@ -13,11 +13,11 @@ export const ContactSection = () => {
           <div className="flex flex-col gap-8 items-center md:flex-row md:gap-16">
             <div>
               <h2 className="font-serif text-2xl md:text-3xl">
-                Let's Create Something amazing together
+                Let's Build Something Great Together
               </h2>
               <p className="text-sm mt-2 md:text-base">
-                Ready to bring your vision to life? Let's connect and discuss
-                how can i help you to acheive your goals.
+                Have a role or a project in mind? Let's talk about how I can
+                help you achieve your goals.
               </p>
             </div>
             <div>

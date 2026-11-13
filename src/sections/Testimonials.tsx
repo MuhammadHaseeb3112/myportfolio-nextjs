@@ -19,7 +19,7 @@ export const TestimonialsSection = () => {
           <SectionHeader
             eyebrow="Happy Clients"
             title="What Clients Say About Me"
-            description="Don't take my word for it. See what our clients have to say about me."
+            description="Don't just take my word for it. Here's what people I've worked with say."
           />
           <div className="flex justify-center py-20">
             <p className="text-white/70 text-lg animate-pulse">Loading testimonials…</p>
@@ -36,7 +36,7 @@ export const TestimonialsSection = () => {
           <SectionHeader
             eyebrow="Happy Clients"
             title="What Clients Say About Me"
-            description="Don't take my word for it. See what our clients have to say about me."
+            description="Don't just take my word for it. Here's what people I've worked with say."
           />
           <div className="flex justify-center py-20">
             <p className="text-white/50">{error ?? "No testimonials yet."}</p>
@@ -52,7 +52,7 @@ export const TestimonialsSection = () => {
         <SectionHeader
           eyebrow="Happy Clients"
           title="What Clients Say About Me"
-          description="Don't take my word for it. See what our clients have to say about me."
+          description="Don't just take my word for it. Here's what people I've worked with say."
         />
 
         <div className="mt-12 lg:mt-20 flex overflow-x-clip [mask-image:linear-gradient(to_right,transparent,black_20%,black_90%,transparent)] py-4 -my-4">

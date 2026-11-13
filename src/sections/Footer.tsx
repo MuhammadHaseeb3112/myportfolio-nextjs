@@ -6,12 +6,24 @@
 import ArrowUpIcon from "@/assets/icons/arrow-up-right.svg";
 import { useProfile } from "@/hooks/useProfile";
 
+// Used only when the API is unreachable; the admin's Social links win otherwise.
 const fallbackLinks = [
-  { name: "Instagram", href: "https://www.instagram.com/mishikhan4698?igsh=Y3hweTc5aWJjd3pz_/?hl=en" },
-  { name: "LinkedIn", href: "https://www.linkedin.com/in/mashaim-shakeel-55113027b" },
-  { name: "WhatsApp", href: "https://wa.me/+923099221363" },
-  { name: "Upwork", href: "https://www.upwork.com" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/codewithmuhammadhaseeb/" },
+  { name: "GitHub", href: "https://github.com/MuhammadHaseeb3112" },
+  { name: "WhatsApp", href: "https://wa.me/923130067082" },
 ];
+
+const FALLBACK_EMAIL = "mhasseb3112@gmail.com";
+const FALLBACK_PHONE = "+92 313 0067082";
+const FALLBACK_LOCATION = "Lahore, Punjab, Pakistan";
+
+// "03130067082" or "+92 313 0067082" -> "+923130067082" for tel: links
+const toTelHref = (phone: string) => {
+  const digits = phone.replace(/[^\d+]/g, "");
+  if (digits.startsWith("+")) return `tel:${digits}`;
+  if (digits.startsWith("0")) return `tel:+92${digits.slice(1)}`;
+  return `tel:+${digits}`;
+};
 
 export const Footer = () => {
   const year = new Date().getFullYear();
@@ -21,6 +33,10 @@ export const Footer = () => {
     profile?.social_links && profile.social_links.length > 0
       ? profile.social_links.map((sl) => ({ name: sl.platform, href: sl.url }))
       : fallbackLinks;
+
+  const email = profile?.email || FALLBACK_EMAIL;
+  const phone = profile?.phone || FALLBACK_PHONE;
+  const location = profile?.location || FALLBACK_LOCATION;
 
   return (
     <footer className="relative overflow-x-clip">
@@ -60,24 +76,24 @@ export const Footer = () => {
               <div className="mt-6 space-y-3">
 
                 <a
-                  href="mailto:your@email.com"
+                  href={`mailto:${email}`}
                   className="flex items-center gap-3 text-white/70 hover:text-emerald-400 transition"
                 >
                   <span className="text-lg">📧</span>
-                  <span>mhasseb3112@email.com</span>
+                  <span>{email}</span>
                 </a>
 
                 <a
-                  href="tel:+923001234567"
+                  href={toTelHref(phone)}
                   className="flex items-center gap-3 text-white/70 hover:text-emerald-400 transition"
                 >
                   <span className="text-lg">📞</span>
-                  <span>+92 313 0067082</span>
+                  <span>{phone}</span>
                 </a>
 
                 <div className="flex items-center gap-3 text-white/70">
                   <span className="text-lg">📍</span>
-                  <span>Bahawalpur, Punjab, Pakistan</span>
+                  <span>{location}</span>
                 </div>
 
               </div>
