@@ -126,13 +126,13 @@ export const HeroSection = () => {
 
   // Portfolio Statistics
   const TOTAL_PROJECTS = 15;
-  const HAPPY_CLIENTS = 10;
-  const YEARS_EXPERIENCE = 1;
+  const LIVE_PRODUCTS = 2;
+  const AUTOMATED_TESTS = 1000;
 
   // 1. Fix the hardcoded 'true'
   const projectsCount = useCounter(TOTAL_PROJECTS, 1500, statsStarted);
-  const clientsCount = useCounter(HAPPY_CLIENTS, 1500, statsStarted);
-  const experienceCount = useCounter(YEARS_EXPERIENCE, 1200, statsStarted);
+  const liveProductsCount = useCounter(LIVE_PRODUCTS, 1200, statsStarted);
+  const testsCount = useCounter(AUTOMATED_TESTS, 1500, statsStarted);
 
   const heroTitle = profile?.hero_title;
   const heroDesc = profile?.hero_description;
@@ -382,13 +382,13 @@ export const HeroSection = () => {
           }}
         >
           {[
-            { value: projectsCount, suffix: "+", label: "Projects Completed" },
-            { value: clientsCount, suffix: "+", label: "Happy Clients" },
-            { value: experienceCount, suffix: "+", label: "Years Experience" },
+            { value: projectsCount, suffix: "+", label: "Projects Built" },
+            { value: liveProductsCount, suffix: "", label: "Live Products" },
+            { value: testsCount, suffix: "+", label: "Automated Tests" },
           ].map((stat) => (
             <div key={stat.label} className="flex flex-col items-center gap-1">
               <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-emerald-300 to-sky-400 bg-clip-text text-transparent">
-                {stat.value}
+                {stat.value.toLocaleString("en-US")}
                 {stat.suffix}
               </span>
               <span className="text-white/40 text-xs md:text-sm">
