@@ -30,7 +30,7 @@ const ITEMS: TimelineItem[] = [
     kind: "education",
     title: "B.Sc. Computer Science",
     org: "The Islamia University of Bahawalpur",
-    period: "Graduated",
+    period: "2022 – 2026",
     place: "Bahawalpur, Pakistan",
     points: ["CGPA 3.73 / 4.0"],
   },
