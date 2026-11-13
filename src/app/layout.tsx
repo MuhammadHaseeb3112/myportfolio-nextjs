@@ -11,8 +11,19 @@ const calistoga = Calistoga({
 });
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
-  description: "Created with the help of Frontend Tribe",
+  metadataBase: new URL("https://muhammadhaseeb-portfolio-six.vercel.app"),
+  title: "Muhammad Haseeb · Full Stack Developer",
+  description:
+    "Portfolio of Muhammad Haseeb: full stack developer building Django, DRF and React apps. Live projects, skills and contact.",
+  openGraph: {
+    siteName: "Portfolio",
+    title: "Muhammad Haseeb · Full Stack Developer",
+    description:
+      "Django, DRF, FastAPI and React projects, including two live products in production.",
+    url: "/",
+    type: "website",
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({
