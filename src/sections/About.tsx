@@ -30,6 +30,17 @@ import HtmlIcon from "@/assets/icons/HTML5.svg";
 import CssIcon from "@/assets/icons/CSS3.svg";
 import JsIcon from "@/assets/icons/JavaScript.svg";
 import BootstrapIcon from "@/assets/icons/icons8-bootstrap.svg";
+import ReactIcon from "@/assets/icons/React.svg";
+import TypeScriptIcon from "@/assets/icons/TypeScript.svg";
+import NextJsIcon from "@/assets/icons/NextJS.svg";
+import TailwindIcon from "@/assets/icons/Tailwind CSS.svg";
+import FastApiIcon from "@/assets/icons/FastAPI.svg";
+import RedisIcon from "@/assets/icons/Redis.svg";
+import CeleryIcon from "@/assets/icons/Celery.svg";
+import StripeIcon from "@/assets/icons/Stripe.svg";
+import WebRtcIcon from "@/assets/icons/WebRTC.svg";
+import LinuxIcon from "@/assets/icons/Linux.svg";
+import GitHubActionsIcon from "@/assets/icons/GitHubActions.svg";
 
 // ── Skill → Icon map ─────────────────────────────────────────
 const skillIconMap: Record<string, React.FC<React.SVGProps<SVGSVGElement>>> = {
@@ -56,6 +67,18 @@ const skillIconMap: Record<string, React.FC<React.SVGProps<SVGSVGElement>>> = {
   "JavaScript": JsIcon,
   "JS": JsIcon,
   "Bootstrap": BootstrapIcon,
+  "React": ReactIcon,
+  "React.js": ReactIcon,
+  "TypeScript": TypeScriptIcon,
+  "Next.js": NextJsIcon,
+  "Tailwind CSS": TailwindIcon,
+  "FastAPI": FastApiIcon,
+  "Redis": RedisIcon,
+  "Celery": CeleryIcon,
+  "Stripe": StripeIcon,
+  "WebRTC": WebRtcIcon,
+  "Linux": LinuxIcon,
+  "GitHub Actions": GitHubActionsIcon,
 };
 
 
