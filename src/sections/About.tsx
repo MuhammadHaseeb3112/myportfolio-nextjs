@@ -130,6 +130,10 @@ export const AboutSection = () => {
   const fullName = profile?.full_name;
   const desig = profile?.designation;
   const photoUrl = profile?.profile_image_url;
+  const aboutParagraphs = (profile?.about ?? "")
+    .split(/\n\s*\n/)
+    .map((p) => p.trim())
+    .filter(Boolean);
 
   return (
     <div className="py-16 lg:py-24" id="about">
@@ -141,6 +145,17 @@ export const AboutSection = () => {
         />
 
         <div className="mt-12 lg:mt-20 flex flex-col gap-6 lg:gap-8">
+
+          {/* ── Bio from the admin "About" field ─────────── */}
+          {aboutParagraphs.length > 0 && (
+            <Card className="p-6 md:p-10">
+              <div className="max-w-3xl mx-auto flex flex-col gap-4 text-white/70 md:text-lg leading-relaxed">
+                {aboutParagraphs.map((p) => (
+                  <p key={p.slice(0, 40)}>{p}</p>
+                ))}
+              </div>
+            </Card>
+          )}
 
           {/* ── Row 1: Profile + Toolbox ─────────────────── */}
           <div

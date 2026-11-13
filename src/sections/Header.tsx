@@ -17,6 +17,10 @@ const menuItems = [
     path: "/#about",
   },
   {
+    name: "Experience",
+    path: "/#experience",
+  },
+  {
     name: "Contact",
     path: "/#contact",
   },
