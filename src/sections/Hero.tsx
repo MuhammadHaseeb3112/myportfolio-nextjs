@@ -15,8 +15,7 @@ import { useEffect, useState, useRef } from "react";
 const SKILLS = [
   "Full Stack Developer",
   "Django Expert",
-  "Backend Developer",
-  "UI/UX Enthusiast",
+  "React Developer",
   "Problem Solver",
 ];
 
@@ -127,8 +126,8 @@ export const HeroSection = () => {
 
   // Portfolio Statistics
   const TOTAL_PROJECTS = 15;
-  const HAPPY_CLIENTS = 15;
-  const YEARS_EXPERIENCE = 2;
+  const HAPPY_CLIENTS = 10;
+  const YEARS_EXPERIENCE = 1;
 
   // 1. Fix the hardcoded 'true'
   const projectsCount = useCounter(TOTAL_PROJECTS, 1500, statsStarted);
