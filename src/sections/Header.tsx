@@ -13,10 +13,6 @@ const menuItems = [
     path: "/#projects",
   },
   {
-    name: "Testimonials",
-    path: "/#testimonials",
-  },
-  {
     name: "About",
     path: "/#about",
   },
