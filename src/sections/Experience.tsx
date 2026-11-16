@@ -21,7 +21,7 @@ const ITEMS: TimelineItem[] = [
     place: "Lahore · Remote",
     points: [
       "Built and shipped Django / DRF backends with React frontends for clients and my own products.",
-      "Designed and now operate three live products on Oracle Cloud: MHTalk (real-time messenger), a multi-tenant SaaS billing platform on Stripe and MarketHub (multi-vendor marketplace).",
+      "Designed and now operate four live products on Oracle Cloud: MHTalk (real-time messenger), a multi-tenant SaaS billing platform on Stripe, MarketHub (multi-vendor marketplace) and Advanced Blog System (real-time multi-author blog).",
       "Set up GitHub Actions pipelines where every push is tested, deployed, health-checked and rolled back automatically on failure.",
     ],
     tags: ["Django", "DRF", "React", "PostgreSQL", "Redis", "Docker", "Stripe"],
