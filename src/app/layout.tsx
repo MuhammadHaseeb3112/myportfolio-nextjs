@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: "Portfolio",
     title: "Muhammad Haseeb · Full Stack Developer",
     description:
-      "Django, DRF, FastAPI and React projects, including two live products in production.",
+      "Django, DRF, FastAPI and React projects, including three live products in production.",
     url: "/",
     type: "website",
   },
