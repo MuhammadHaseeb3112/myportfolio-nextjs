@@ -126,7 +126,7 @@ export const HeroSection = () => {
 
   // Portfolio Statistics
   const TOTAL_PROJECTS = 15;
-  const LIVE_PRODUCTS = 2;
+  const LIVE_PRODUCTS = 3;
   const AUTOMATED_TESTS = 1000;
 
   // 1. Fix the hardcoded 'true'
